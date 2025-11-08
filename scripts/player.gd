@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		# Rotates the player towards the direction moved
 		$Pivot.basis = Basis.looking_at(input_direction)
 	
-	# Ground Velocity
+	# Horizontal Velocity
 	target_velocity.x = input_direction.x * speed
 	target_velocity.z = input_direction.z * speed
 
