@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm7xewtpe0y4q"]
+
+[ext_resource type="Script" uid="uid://b51bqo52kug81" path="res://scripts/show_analog_stick.gd" id="1_tf1xy"]
+[ext_resource type="Texture2D" uid="uid://d0x6hw3lbnnnc" path="res://sprites/circle.png" id="2_p4njj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tf1xy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fd3jh"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tf1xy"]
+
+[node name="ShowAnalogStick" type="Node3D"]
+script = ExtResource("1_tf1xy")
+
+[node name="Background" type="Sprite3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+modulate = Color(0.26293245, 0.26293245, 0.26293245, 1)
+texture = ExtResource("2_p4njj")
+
+[node name="2D" type="Node3D" parent="."]
+
+[node name="Stick" type="Sprite3D" parent="2D"]
+sorting_offset = 1.0
+texture = ExtResource("2_p4njj")
+
+[node name="3D" type="Node3D" parent="."]
+
+[node name="Pivot" type="Node3D" parent="3D"]
+
+[node name="Ball" type="MeshInstance3D" parent="3D/Pivot"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("SphereMesh_tf1xy")
+
+[node name="Shaft" type="MeshInstance3D" parent="3D/Pivot"]
+transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, -0.3, 0, 0.3, -1.3113417e-08, 0, 0, 0.3)
+mesh = SubResource("CylinderMesh_fd3jh")
+
+[node name="Pad" type="MeshInstance3D" parent="3D/Pivot"]
+transform = Transform3D(1, 0, 0, 0, -2.1855695e-09, -1, 0, 0.05, -4.371139e-08, 0, 0, 0.64227605)
+mesh = SubResource("CylinderMesh_tf1xy")

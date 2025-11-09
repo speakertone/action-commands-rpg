@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvbgxt67n3ycv"]
+
+[ext_resource type="Script" uid="uid://drjxvg31f2elt" path="res://scripts/success_indicator.gd" id="1_aocg1"]
+[ext_resource type="Texture2D" uid="uid://cdg8lc70wqfs5" path="res://sprites/success_circle.png" id="1_jxn01"]
+[ext_resource type="Texture2D" uid="uid://c213br3ly366u" path="res://sprites/failure_x.png" id="2_aocg1"]
+
+[node name="SuccessIndicator" type="Node3D"]
+script = ExtResource("1_aocg1")
+
+[node name="Success" type="Sprite3D" parent="."]
+texture = ExtResource("1_jxn01")
+
+[node name="Failure" type="Sprite3D" parent="."]
+texture = ExtResource("2_aocg1")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

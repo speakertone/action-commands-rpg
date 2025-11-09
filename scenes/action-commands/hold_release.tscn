@@ -1,16 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3x7qkkiyk7o3"]
 
 [ext_resource type="Script" uid="uid://1bl3crcf61vw" path="res://scripts/action-commands/hold_release.gd" id="1_y57fb"]
-[ext_resource type="Texture2D" uid="uid://d0x6hw3lbnnnc" path="res://sprites/circle.png" id="2_3moy5"]
+[ext_resource type="Texture2D" uid="uid://cr0dfm47ro2ga" path="res://sprites/square.png" id="2_3moy5"]
 
 [node name="HoldRelease" type="Node3D"]
 script = ExtResource("1_y57fb")
+hold_time = 2.0
 
-[node name="StickBG" type="Sprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+[node name="TimerBG" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 modulate = Color(0.26293245, 0.26293245, 0.26293245, 1)
 texture = ExtResource("2_3moy5")
 
-[node name="Stick" type="Sprite3D" parent="."]
+[node name="TimerBar" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 sorting_offset = 1.0
+modulate = Color(0, 0.5921569, 0.17254902, 1)
 texture = ExtResource("2_3moy5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
